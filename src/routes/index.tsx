@@ -33,6 +33,7 @@ import { Dialog, DialogContent, DialogDescription, DialogTitle } from "@/compone
 import { Textarea } from "@/components/ui/textarea";
 import { Logo, Reveal, SectionHeading, ArrowButton, Count, goTo } from "@/components/channel-ui";
 import { filterPrograms, hosts, images, programs, timeline } from "@/lib/channel-data";
+import { ChannelEffects } from "@/components/channel-effects";
 import familyHero from "@/assets/family-hero.jpg";
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -162,6 +163,7 @@ function Home() {
   ];
   return (
     <>
+      <ChannelEffects />
       <AnimatePresence>
         {loading && (
           <motion.div className="intro-loader" exit={{ opacity: 0 }}>
@@ -282,7 +284,20 @@ function Home() {
                 —<br />
                 это{" "}
                 <span className="accent-word">
-                  твоя семья
+                  <span aria-label="твоя семья">
+                    {Array.from("твоя семья").map((letter, i) => (
+                      <motion.span
+                        aria-hidden="true"
+                        key={i}
+                        className="split-letter"
+                        initial={reduced ? false : { opacity: 0, y: 12 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.15 + i * 0.035 }}
+                      >
+                        {letter === " " ? "\u00a0" : letter}
+                      </motion.span>
+                    ))}
+                  </span>
                   <svg viewBox="0 0 370 18" aria-hidden="true">
                     <path d="M3 13 Q180 -2 367 9" />
                   </svg>

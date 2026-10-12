@@ -1,5 +1,5 @@
 import hero from "@/assets/hero.jpg.asset.json";
-import dinner from "@/assets/dinner.jpg.asset.json";
+import dinner from "@/assets/dinner-food.jpg.asset.json";
 import morning from "@/assets/morning.jpg.asset.json";
 import kids from "@/assets/kids.jpg.asset.json";
 import love from "@/assets/love.jpg.asset.json";

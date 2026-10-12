@@ -2445,3 +2445,27 @@ footer .section-inner {
     scroll-behavior: auto !important;
   }
 }
+.split-letter {
+  display: inline-block;
+}
+.cursor-follower {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 20px;
+  height: 20px;
+  border: 1px solid var(--primary);
+  border-radius: 50%;
+  z-index: 80;
+  pointer-events: none;
+  opacity: 0.65;
+  transition:
+    width 0.2s,
+    height 0.2s,
+    background 0.2s;
+}
+.cursor-follower.over-control {
+  background: color-mix(in oklab, var(--primary) 20%, transparent);
+  width: 28px;
+  height: 28px;
+}
