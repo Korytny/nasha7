@@ -494,8 +494,8 @@ function Home() {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0 }}
               >
-                <b>{timeline[year].title}</b>
-                <span>{timeline[year].text}</span>
+                <b>{timeline[year]?.title}</b>
+                <span>{timeline[year]?.text}</span>
               </motion.div>
             </AnimatePresence>
           </div>
@@ -522,29 +522,31 @@ function Home() {
             </div>
           </SectionHeading>
           <div className="host-grid">
-            {Array.from({ length: 3 }, (_, i) => hosts[(hostStart + i) % 3]).map((h, i) => (
-              <article className={`host-card host-tone-${i}`} key={h.name}>
-                <div className="host-portrait">
-                  <img src={h.image} alt={h.name} loading="lazy" width={400} height={400} />
-                  <Heart className="portrait-heart" fill="currentColor" />
-                </div>
-                <span className="host-label">{h.show}</span>
-                <h3>{h.name}</h3>
-                <p>{h.bio}</p>
-                <ArrowButton
-                  onClick={() =>
-                    setModal({
-                      title: h.name,
-                      text: h.bio + " Программа: «" + h.show + "».",
-                      image: h.image,
-                      kind: "host",
-                    })
-                  }
-                >
-                  Познакомиться
-                </ArrowButton>
-              </article>
-            ))}
+            {Array.from({ length: 3 }, (_, i) => hosts[(hostStart + i) % 3] ?? hosts[0]).map(
+              (h, i) => (
+                <article className={`host-card host-tone-${i}`} key={h.name}>
+                  <div className="host-portrait">
+                    <img src={h.image} alt={h.name} loading="lazy" width={400} height={400} />
+                    <Heart className="portrait-heart" fill="currentColor" />
+                  </div>
+                  <span className="host-label">{h.show}</span>
+                  <h3>{h.name}</h3>
+                  <p>{h.bio}</p>
+                  <ArrowButton
+                    onClick={() =>
+                      setModal({
+                        title: h.name,
+                        text: h.bio + " Программа: «" + h.show + "».",
+                        image: h.image,
+                        kind: "host",
+                      })
+                    }
+                  >
+                    Познакомиться
+                  </ArrowButton>
+                </article>
+              ),
+            )}
           </div>
         </Reveal>
         <Reveal id="live" className="broadcast-section">
@@ -637,13 +639,15 @@ function Home() {
                   <h3>Сегодня в эфире</h3>
                   <span>12 октября, пн</span>
                 </div>
-                {[
-                  ["16:00", "Детский час"],
-                  ["17:00", "Родительский час"],
-                  ["19:00", "Семейный ужин"],
-                  ["20:00", "Бабушкин рецепт"],
-                  ["21:00", "Истории любви"],
-                ].map(([time, name], i) => (
+                {(
+                  [
+                    ["16:00", "Детский час"],
+                    ["17:00", "Родительский час"],
+                    ["19:00", "Семейный ужин"],
+                    ["20:00", "Бабушкин рецепт"],
+                    ["21:00", "Истории любви"],
+                  ] as const
+                ).map(([time, name], i) => (
                   <div className={`schedule-row ${i === 2 ? "current" : ""}`} key={time}>
                     <span>{time}</span>
                     <div>
@@ -923,10 +927,12 @@ function Home() {
                   <span>Смотрите нас онлайн из любого города</span>
                 </div>
                 <div className="contact-details">
-                  {[
-                    ["Электронная почта", "hello@nasha7ya.example"],
-                    ["Для партнёров", "partners@nasha7ya.example"],
-                  ].map(([label, value]) => (
+                  {(
+                    [
+                      ["Электронная почта", "hello@nasha7ya.example"],
+                      ["Для партнёров", "partners@nasha7ya.example"],
+                    ] as const
+                  ).map(([label, value]) => (
                     <div key={value}>
                       <small>{label}</small>
                       <span>

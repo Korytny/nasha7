@@ -98,7 +98,7 @@ export const hosts = [
     image: host3.url,
     bio: "Разговаривает о сложном просто. Вместе с приглашёнными экспертами помогает семьям слышать и понимать друг друга.",
   },
-];
+] as const;
 export const timeline = [
   {
     year: "2010",
