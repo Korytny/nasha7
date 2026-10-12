@@ -145,7 +145,7 @@
 
 @theme inline {
   --font-sans: "Inter", sans-serif;
-  --font-display: "Manrope", sans-serif;
+  --font-display: "Unbounded", sans-serif;
   --color-mint: var(--mint);
   --color-sunshine: var(--sunshine);
   --color-hero-ink: var(--hero-ink);
@@ -2469,3 +2469,8 @@ footer .section-inner {
   width: 28px;
   height: 28px;
 }
+
+h1{font-size:58px}h2{font-size:32px}.hero-brand,.brand-mark,.brand-word{font-family:var(--font-sans)}.program-content h3{font-size:18px}.program-0 h3{font-size:25px}.host-card h3{font-size:18px}.news-card h3{font-size:17px}.newsletter h3{font-size:14px}.coverage-head h3{font-size:15px}
+@media(max-width:1150px){.hero h1{font-size:52px}.section-heading h2{font-size:29px}}
+@media(max-width:900px){.hero h1{font-size:46px}.section-heading h2,h2{font-size:27px}.host-card h3{font-size:15px}}
+@media(max-width:600px){.hero h1{font-size:35px}.section-heading h2,h2{font-size:24px}.host-card h3{font-size:21px}.story-layout h2{font-size:28px}.testimonial blockquote{font-size:17px}.news-card h3{font-size:20px}.coverage-head h3{font-size:14px}.footer-top>div:first-child>p{margin-left:15px}.program-content h3{font-size:15px}.program-0 h3{font-size:23px}}
