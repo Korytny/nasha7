@@ -1,22 +1,14 @@
-import hero from "@/assets/hero.jpg.asset.json";
-import dinner from "@/assets/dinner-food.jpg.asset.json";
-import morning from "@/assets/morning.jpg.asset.json";
-import kids from "@/assets/kids.jpg.asset.json";
-import love from "@/assets/love.jpg.asset.json";
-import cooking from "@/assets/cooking.jpg.asset.json";
-import host1 from "@/assets/host1.jpg.asset.json";
-import host2 from "@/assets/host2.jpg.asset.json";
-import host3 from "@/assets/host3.jpg.asset.json";
-import studio from "@/assets/studio.jpg.asset.json";
-export const images = {
-  hero: hero.url,
-  dinner: dinner.url,
-  morning: morning.url,
-  kids: kids.url,
-  love: love.url,
-  cooking: cooking.url,
-  studio: studio.url,
-};
+import hero from "@/assets/hero.jpg";
+import dinner from "@/assets/dinner-food.jpg";
+import morning from "@/assets/morning.jpg";
+import kids from "@/assets/kids.jpg";
+import love from "@/assets/love.jpg";
+import cooking from "@/assets/cooking.jpg";
+import host1 from "@/assets/host1.jpg";
+import host2 from "@/assets/host2.jpg";
+import host3 from "@/assets/host3.jpg";
+import studio from "@/assets/studio.jpg";
+export const images = { hero, dinner, morning, kids, love, cooking, studio };
 export const programs = [
   {
     name: "Семейный ужин",
@@ -83,19 +75,19 @@ export const hosts = [
   {
     name: "Анна Соколова",
     show: "Семейный ужин",
-    image: host1.url,
+    image: host1,
     bio: "Верит, что самые важные разговоры начинаются на кухне. Делится семейными традициями и знакомит зрителей с удивительными людьми.",
   },
   {
     name: "Михаил Волков",
     show: "Утро с 7Я",
-    image: host2.url,
+    image: host2,
     bio: "Начинает каждый день с улыбки. Любит путешествия, добрые новости и искренние разговоры.",
   },
   {
     name: "Елена Миронова",
     show: "Родительский час",
-    image: host3.url,
+    image: host3,
     bio: "Разговаривает о сложном просто. Вместе с приглашёнными экспертами помогает семьям слышать и понимать друг друга.",
   },
 ] as const;
